@@ -1,13 +1,13 @@
 # #Calculo de distância
 
-# distanciaPercorrida = float(input("Digite a distância percorrida: \n"))
+distanciaPercorrida = float(input("Digite a distância percorrida: \n"))
 
-# if distanciaPercorrida <= 200:
-#     precoPassagem = distanciaPercorrida * 0.50
-# else:
-#     precoPassagem = distanciaPercorrida * 0.35
+if distanciaPercorrida <= 200:
+    precoPassagem = distanciaPercorrida * 0.50
+else:
+    precoPassagem = distanciaPercorrida * 0.35
 
-# print(f"O preço da passagem é R${precoPassagem}")
+print(f"O preço da passagem é R${precoPassagem}")
 
 
 #Aumento salário funcionario

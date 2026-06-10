@@ -2,23 +2,23 @@ gameList = ["Frag Punk", "Fortnite", "Forza Horizon",
             "Minecraft", "Tomb Raider"]
 
 # # Iterando valores de uma lista
-# for game in gameList:
-#     print(game)
+for game in gameList:
+    print(game)
 
 # # Quando a condição for atendida, o Loop será encerrado
 
-# for game in gameList:
-#     if game == "Forza Horizon":
-#         break
-#     print(game)
+for game in gameList:
+    if game == "Forza Horizon":
+        break
+    print(game)
 
 
 # # Quando a condição for atendida, o Loop vai para a próxima interação
 
-# for game in gameList:
-#     if game == "Forza Horizon":
-#         continue
-#     print(game)
+for game in gameList:
+    if game == "Forza Horizon":
+        continue
+    print(game)
 
 
 # Sistema de avaliação
