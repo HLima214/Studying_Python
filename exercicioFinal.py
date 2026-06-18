@@ -30,24 +30,17 @@ teamList = {}
 
 
 def addTeam():
-    nameTeam = input("Digite o nome do time: \n")
-    teamList[nameTeam]["Quantidade de jogadores"] = int(input("Digite a quantiade de jogadores: \n"))
-
-    print(teamList)
-
-
-def findTeam():
-    print(teamList)
-
-def removeTeam():
-    print(teamList)
-    key = input("Digite o indice do time que deseja remover: \n ")
-    if key in teamList:
-        teamList.pop(key)
-        print("Time removido com sucesso!")
-    else:
-        print("Esse time não existe !")
-
+    choice = int(input("Você quer adicionar um time ? (1 = sim | 0 = não)\n"))
+    while choice != 0:
+        if choice == 1:
+            for time in teamList:
+                time = input("Digite o nome do time: \n")
+                teamList["Time"]=time
+                print(teamList)
+        elif choice == 0:
+            print("Voltando para o menu !")
+        else:
+            print("Opção inválida")
 
 
 option = 0
@@ -69,13 +62,7 @@ while(option != 7):
 
 
     if option == 1:
-        print("Adicionando time:")
         addTeam()
-    elif option == 2:
-        removeTeam()
-    elif option == 3:
-        print("Listando times: ")
-        findTeam()
 
 
 
