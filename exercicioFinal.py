@@ -25,32 +25,28 @@ e listar os jogadores que foram associados a ele.
 Este é o exercício de revisão do módulo, então aproveite para utilizar todos os recursos vistos até agora, 
 como os funções, condições, loop, listas, etc.
 '''
-teamList = {}
-
-
-
-def addTeam():
-    choice = int(input("Você quer adicionar um time ? (1 = sim | 0 = não)\n"))
-    while choice != 0:
-        if choice == 1:
-            for time in teamList:
-                time = input("Digite o nome do time: \n")
-                teamList["Time"]=time
-                print(teamList)
-        elif choice == 0:
-            print("Voltando para o menu !")
-        else:
-            print("Opção inválida")
-
-
+teams = {}
 option = 0
 
+
+def listTeams():
+    print("Listando times:")
+    for i,team in enumerate(teams.values()):
+        print(f"{i + 1}. {team['nome']} ({len(team['players'])} jogadores)")
+
+
+
+
+
+
+    
+
 while(option != 7):
-    print("====Gerenciador de times====")
+    print("\n====Gerenciador de times====")
     print("Selecione uma das opções abaixo \n")
     print("1. Adicionar um time ")
-    print("2. Remover um time ")
-    print("3. Listar times ")
+    print("2. Listar times ")
+    print("3. Remover um time ")
     print("4. Adicionar jogador em um time ")
     print("5. Remover jogador de um time ")
     print("6. Listar jogadores de um time ")
@@ -62,8 +58,64 @@ while(option != 7):
 
 
     if option == 1:
-        addTeam()
+        teamName = input("Digite o nome do time que deseja adicionar: ")
+        teams[teamName] = {'nome': teamName, 'players':[]}
 
+    elif option == 2:
+        listTeams()
+
+    elif option == 3:
+        listTeams()
+        del_option = int(input("Digite o índice do time que deseja remover: \n"))
+        if del_option <= len(teams):
+            teamName = list(teams.keys())[del_option - 1]
+            del teams[teamName]
+            print("Time removido")
+
+    elif option == 4:
+        listTeams()
+        add_player = int(input("Digite o índice do time que deseja adicionar jogador: \n"))
+        if add_player <= len(teams):
+            teamName = list(teams.keys())[add_player - 1]
+            name_player = input(f"Digite o nome do jogador a ser adicionado no time {teamName}: ")
+            teams[teamName]['players'].append(name_player)
+            listTeams()
+
+    elif option == 5:
+        listTeams()
+        select_team = int(input("Digite o índice do time que deseja remover jogador: \n"))
+        if select_team <= len(teams):
+            teamName = list(teams.keys())[select_team - 1]
+            players = teams[teamName]['players']
+
+            print(f"Jogadores do time {teamName}:")
+            for i, player in enumerate(players):
+                print(f"{i + 1}. {player}")
+            delete_player = int(input(f"Digite o índice do jogador que deseja remover do time {teamName}: \n"))
+            teams[teamName]['players'].pop(delete_player - 1)
+            print(f"Jogador removido")
+
+        
+
+    elif option == 6:
+        listTeams()
+        show_players = int(input("Digite o índice do time que deseja listar os jogadores: \n"))
+        if show_players <= len(teams):
+            teamName = list(teams.keys())[show_players - 1]
+            players = teams[teamName]['players']
+
+            print(f"Jogadores do time {teamName}:")
+            for i, player in enumerate(players):
+                print(f"{i + 1}. {player}")
+
+            
+
+
+    elif option == 7:
+        break
+    
+    else:
+        print("Opção inválida")
 
 
 
